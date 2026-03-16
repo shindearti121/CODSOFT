@@ -1,0 +1,11 @@
+[theme]
+# Pink-ish theme. The CSS in app.py adds extra polish.
+primaryColor = "#ff4da6"
+backgroundColor = "#fff6fb"
+secondaryBackgroundColor = "#ffe3f1"
+textColor = "#1f2937"
+font = "sans serif"
+
+[server]
+headless = true
+
