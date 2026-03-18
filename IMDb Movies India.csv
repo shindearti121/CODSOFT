@@ -1,0 +1,113 @@
+## IMDb Movie Rating Predictor (India)
+
+This project is a small **Flask + scikit-learn** app that predicts IMDb-style ratings for Indian movies based on metadata (year, duration, genre, votes, director, and main cast). It includes:
+
+- A data cleaning script for the raw CSV dataset
+- A model training script that builds and saves a `model.pkl`
+- A Flask backend API
+- A modern frontend UI in the `static` folder
+
+---
+
+## 1. Project Structure
+
+- `clean_dataset.py` – cleans `IMDb Movies India.csv` and writes `IMDb Movies India_cleaned.csv`
+- `train_model.py` – trains a model on the cleaned CSV and saves `model.pkl`
+- `app.py` – Flask app serving the API and static frontend
+- `static/` – contains `index.html`, `style.css`, and `script.js`
+- `IMDb Movies India.csv` – original dataset
+
+---
+
+## 2. Setup (Windows, PowerShell)
+
+Open **PowerShell** and run:
+
+```powershell
+cd "C:\Users\HP\Downloads\IMDb Movies India.csv"
+
+python -m venv .venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
+
+python -m pip install -U pip
+pip install flask flask-cors pandas scikit-learn joblib category_encoders
+```
+
+If you already have a virtual environment active, you can skip the `venv` creation and activation steps.
+
+---
+
+## 3. Data Cleaning and Model Training
+
+From the same directory (and with the virtual environment activated):
+
+```powershell
+python .\clean_dataset.py
+python .\train_model.py
+```
+
+This will:
+
+- Read `IMDb Movies India.csv`
+- Clean and save `IMDb Movies India_cleaned.csv`
+- Train a Random Forest model
+- Save the trained pipeline as `model.pkl`
+
+---
+
+## 4. Run the Web App
+
+Still in the same directory:
+
+```powershell
+python .\app.py
+```
+
+By default, the app runs on `http://127.0.0.1:5000`.
+
+Open your browser and visit:
+
+- `http://127.0.0.1:5000`
+
+Fill in the movie details and click **Predict Rating** to see the predicted score.
+
+---
+
+## 5. Git & GitHub (codesoft repo)
+
+From the project directory:
+
+```powershell
+cd "C:\Users\HP\Downloads\IMDb Movies India.csv"
+
+git init
+git add .
+git commit -m "Initial commit: IMDb rating predictor"
+git branch -M main
+
+git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/codesoft.git
+git push -u origin main
+```
+
+Replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
+
+To create and push a tag (optional):
+
+```powershell
+git tag codesoft
+git push origin codesoft
+```
+
+---
+
+## 6. Deactivating the Virtual Environment
+
+In PowerShell, simply run:
+
+```powershell
+deactivate
+```
+
+Or close the current PowerShell window to exit the environment.
+
